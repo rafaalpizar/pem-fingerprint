@@ -10,9 +10,10 @@ cat cert_in_pem_format.txt | python fingerprint.py
 
 Author: Rafael Alpizar Lopez
 
-Version: 1.0
+Version: 1.1
 
 Change Log:
+2022-08-25 - Python3 refactor
 2017-12-06 - File header comment update
 '''
 
@@ -48,8 +49,8 @@ def process_cert():
 
     for i in certs:
         # DEBUG print certs[i]
-        res = subprocess.Popen(['openssl', 'x509', '-noout', '-fingerprint', '-sha1'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        out, err= res.communicate(certs[i])
+        with subprocess.Popen(['openssl', 'x509', '-noout', '-fingerprint', '-sha1'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True) as res:
+            out, err= res.communicate(input=certs[i])
         print(out)
             
     return 0
