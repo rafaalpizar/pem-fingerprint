@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import subprocess
 
 '''
@@ -50,7 +50,7 @@ def process_cert():
         # DEBUG print certs[i]
         res = subprocess.Popen(['openssl', 'x509', '-noout', '-fingerprint', '-sha1'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         out, err= res.communicate(certs[i])
-        print out
+        print(out)
             
     return 0
 
