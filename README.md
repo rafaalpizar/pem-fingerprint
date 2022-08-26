@@ -6,8 +6,8 @@ to calculates and stdout all the fingerprints
 cat cert_in_pem_format.txt | python fingerprint.py
 
 ## Information
-Author: Rafael Alpizar Lopez
-Version: 1.0
+- Author: Rafael Alpizar Lopez
+- Version: 1.0
 
 ## Change Log
 - 2022-08-25 - Update code to support python3
